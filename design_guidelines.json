@@ -1,0 +1,142 @@
+{
+  "project_name": "Rainbow Star",
+  "domain": "Premium B2B Loose Diamond Stock Showcase",
+  "theme_archetype": {
+    "theme": "Dark",
+    "archetype": "5 (Luxury)",
+    "description": "Cinematic dark mode, heavy focus on expensive textures, lighting, and negative space. High contrast for readability of B2B data tables, paired with dramatic product presentation for marketing."
+  },
+  "colors": {
+    "background": {
+      "base": "#07090F",
+      "surface": "#121622",
+      "surface_elevated": "#1A1F2E",
+      "glass": "rgba(18, 22, 34, 0.6)"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "brand_accents": {
+      "gold": "#C9A84C",
+      "rose_gold": "#B76E79",
+      "electric_blue": "#4FC3F7"
+    },
+    "status": {
+      "available": "#10B981",
+      "reserved": "#F59E0B",
+      "sold": "#EF4444"
+    },
+    "borders": {
+      "default": "#27272A",
+      "focus": "#C9A84C",
+      "argyle_pink_glow": "rgba(183, 110, 121, 0.5)",
+      "argyle_blue_glow": "rgba(79, 195, 247, 0.5)"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cormorant Garamond, serif",
+      "body": "Montserrat, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scales": {
+      "h1": "text-5xl md:text-6xl tracking-tight leading-none font-light",
+      "h2": "text-4xl md:text-5xl tracking-tight leading-tight",
+      "h3": "text-2xl md:text-3xl tracking-wide",
+      "body": "text-base leading-relaxed tracking-wide",
+      "table_data": "text-sm tabular-nums",
+      "overline": "text-xs tracking-[0.2em] uppercase font-bold text-gray-400"
+    },
+    "rules": [
+      "Headings must use Cormorant Garamond.",
+      "Never use pure white (#FFFFFF) for dense body text; use secondary (#A1A1AA) to reduce eye strain.",
+      "Use tabular-nums for all diamond specifications (Carat, Price) to ensure vertical alignment in tables."
+    ]
+  },
+  "spacing_and_layout": {
+    "marketing_pages": "Generous spacing. Use p-12 to p-24 for section padding. Embrace asymmetrical bento grids for featured stones.",
+    "dashboard_stock_page": "Dense control-room layout. Use h-screen with a sticky header. Sidebar width: 320px. Content area: responsive table with sticky header.",
+    "container": "max-w-7xl mx-auto px-6",
+    "glassmorphism": "backdrop-blur-xl bg-[#121622]/60 border border-white/5 shadow-2xl"
+  },
+  "components_strategy": {
+    "buttons": {
+      "primary": "bg-[#C9A84C] text-[#07090F] font-semibold hover:bg-[#D4B86A] transition-all rounded-sm px-6 py-3",
+      "outline": "border border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C]/10 transition-all rounded-sm px-6 py-3",
+      "whatsapp": "bg-[#25D366] text-white font-semibold hover:bg-[#1DA851] transition-all flex items-center gap-2 rounded-sm px-6 py-3"
+    },
+    "inputs_and_filters": {
+      "style": "bg-[#121622] border-[#27272A] text-white focus:ring-1 focus:ring-[#C9A84C] rounded-sm",
+      "sliders": "Use Shadcn slider customized with gold/rose-gold/electric-blue track depending on the active category."
+    },
+    "data_table": {
+      "style": "w-full text-left text-sm text-gray-300",
+      "header": "sticky top-0 bg-[#121622] text-xs uppercase tracking-wider text-gray-400 font-semibold border-b border-[#27272A] z-10",
+      "row": "hover:bg-[#1A1F2E] border-b border-[#27272A]/50 transition-colors cursor-pointer",
+      "cell": "whitespace-nowrap px-4 py-3"
+    },
+    "argyle_cards": {
+      "pink": "relative group overflow-hidden border border-[#B76E79]/20 bg-[#121622] p-6 hover:shadow-[0_0_30px_rgba(183,110,121,0.15)]",
+      "blue": "relative group overflow-hidden border border-[#4FC3F7]/20 bg-[#121622] p-6 hover:shadow-[0_0_30px_rgba(79,195,247,0.15)]"
+    },
+    "enquiry_basket": "Fixed bottom-8 right-8 z-50 bg-[#1A1F2E]/90 backdrop-blur-md border border-[#C9A84C]/30 shadow-2xl rounded-lg p-6 w-80 max-h-[60vh] flex flex-col"
+  },
+  "animations_and_motion": {
+    "hero_particles": "Implement 'tsparticles' with slow-moving, tiny, high-opacity white/gold dots simulating diamond dust.",
+    "logo_refraction": "Use Framer Motion to sweep a linear gradient (light beam) across the text 'Rainbow Star' continuously.",
+    "argyle_glow_border": "Use a rotating conic-gradient mask via CSS or Framer Motion to simulate a tracing light beam around the border of Argyle diamond tiles.",
+    "page_transitions": "Soft opacity fade-in (duration: 0.6s) with a slight upward translation (y: 10).",
+    "table_rows": "Staggered fade-in on initial load."
+  },
+  "images_and_media": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1764083267311-8a2f37838051?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBjb3Jwb3JhdGUlMjBtb2Rlcm4lMjBkYXJrfGVufDB8fHx8MTc4MjY3MDY5Nnww&ixlib=rb-4.1.0&q=85",
+      "alt": "Luxury modern corporate glass facade dark",
+      "usage": "Use as a deep, subtle background for the contact or about pages with heavy black overlay."
+    },
+    "loose_diamond_1": {
+      "url": "https://images.unsplash.com/photo-1748598786616-771cef6d93d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxsb29zZSUyMGRpYW1vbmQlMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3ODI2NzA2OTV8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Sparkling loose white diamond on black",
+      "usage": "Hero or featured standard diamond section."
+    },
+    "loose_diamonds_pile": {
+      "url": "https://images.unsplash.com/photo-1549461520-fb80f766c147?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHw0fHxsb29zZSUyMGRpYW1vbmQlMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3ODI2NzA2OTV8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Pile of loose diamonds",
+      "usage": "Background texture for the CVD diamonds section or homepage."
+    },
+    "argyle_pink_abstract": {
+      "url": "https://images.unsplash.com/photo-1767481626894-bab78ae919be?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwxfHxwaW5rJTIwZGlhbW9uZCUyMGRhcmslMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc4MjY3MDY5NXww&ixlib=rb-4.1.0&q=85",
+      "alt": "Abstract glowing pink diamond texture",
+      "usage": "Hero background for the Argyle Pink sub-page."
+    },
+    "argyle_blue_abstract": {
+      "url": "https://images.unsplash.com/photo-1735480165158-e645caaf1695?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwzfHxibHVlJTIwZGlhbW9uZCUyMGRhcmslMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc4MjY3MDcxMXww&ixlib=rb-4.1.0&q=85",
+      "alt": "Blue rings/stones macro",
+      "usage": "Hero background or feature for Argyle Blue sub-page."
+    }
+  },
+  "libraries_and_tools": [
+    "react-router-dom (Routing)",
+    "lucide-react (Icons)",
+    "framer-motion (Animations)",
+    "tsparticles & react-tsparticles (Diamond dust effect)",
+    "shadcn/ui (Tailwind-based customized components for filters, select, slider, dialogs)"
+  ],
+  "testing_attributes": {
+    "rules": [
+      "All interactive elements must have a data-testid attribute.",
+      "Use kebab-case and role-based naming (e.g., data-testid='nav-home-link', data-testid='add-to-enquiry-btn', data-testid='whatsapp-submit-btn', data-testid='filter-carat-slider')."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure global background is set to the dark navy/charcoal base (#07090F). Do not use pure white anywhere except text.",
+    "Implement a complex layout: Marketing pages (Home, About) get asymmetrical, high-margin designs. The Stock page gets a dense, control-room style UI taking up full viewport height (sidebar + data table).",
+    "Implement 'Table' and 'Grid' toggles for the stock listing. The table must have a sticky header.",
+    "Integrate Shadcn primitives heavily for the sidebar filters (Carat sliders, Color multi-selects, etc.) but strip the default Vercel-look borders and apply the brand colors (Gold, Rose Gold, Electric Blue).",
+    "Include dummy data for live stock counters and table listings so the UI looks populated immediately.",
+    "The 'Request a Stone' form and 'Contact' page should look like premium concierge services.",
+    "Use provided Unsplash images for hero sections, ensuring they have an appropriate dark overlay (`bg-black/60`) to maintain text contrast."
+  ]
+}
