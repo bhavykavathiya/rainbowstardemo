@@ -86,12 +86,12 @@ const Home = () => {
               <span className="text-xs uppercase tracking-[0.3em] text-[#1A1505]">Diamonds in stock — updated live</span>
             </motion.div>
           </div>
-          <div className="lg:col-span-5 relative hidden lg:flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[420px] h-[420px] rounded-full bg-[#E5BB2E]/8 blur-3xl"/>
+          <div className="lg:col-span-5 relative hidden lg:flex items-center justify-center min-h-[640px]">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[600px] h-[600px] rounded-full bg-[#E5BB2E]/12 blur-3xl"/>
             </div>
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: 'linear' }} className="relative w-[380px] h-[380px] flex items-center justify-center">
-              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(229,187,46,0.45)]" style={{ clipPath: 'circle(46% at 50% 50%)' }} />
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 45, repeat: Infinity, ease: 'linear' }} className="relative w-[620px] h-[620px] flex items-center justify-center">
+              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-full h-full object-contain drop-shadow-[0_0_60px_rgba(229,187,46,0.5)]" style={{ WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 38%, transparent 48%)', maskImage: 'radial-gradient(circle at 50% 50%, black 38%, transparent 48%)' }} />
             </motion.div>
           </div>
         </div>
