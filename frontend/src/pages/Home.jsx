@@ -86,14 +86,12 @@ const Home = () => {
               <span className="text-xs uppercase tracking-[0.3em] text-[#1A1505]">Diamonds in stock — updated live</span>
             </motion.div>
           </div>
-          <div className="lg:col-span-5 relative hidden lg:block">
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: 'linear' }} className="aspect-square relative">
-              <div className="absolute inset-0 border border-[#C9A227]/30 rotate-45"/>
-              <div className="absolute inset-8 border border-[#B7536B]/30 rotate-12"/>
-              <div className="absolute inset-16 border border-[#2F8FCB]/30 -rotate-12"/>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Diamond size={140} strokeWidth={0.4} className="text-[#C9A227]" style={{ filter: 'drop-shadow(0 0 40px rgba(201,168,76,0.4))' }} />
-              </div>
+          <div className="lg:col-span-5 relative hidden lg:flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[420px] h-[420px] rounded-full bg-[#E5BB2E]/8 blur-3xl"/>
+            </div>
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: 'linear' }} className="relative w-[380px] h-[380px] flex items-center justify-center">
+              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(229,187,46,0.45)]" style={{ clipPath: 'circle(46% at 50% 50%)' }} />
             </motion.div>
           </div>
         </div>
