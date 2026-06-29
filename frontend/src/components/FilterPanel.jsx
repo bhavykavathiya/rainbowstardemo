@@ -8,21 +8,21 @@ const QUALITY = ['Excellent','Very Good','Good'];
 const FLUO = ['None','Faint','Medium','Strong'];
 
 const Section = ({ title, children }) => (
-  <div className="border-b border-white/5 pb-5 mb-5">
+  <div className="border-b border-[#E8DFC2] pb-5 mb-5">
     <div className="overline mb-3">{title}</div>
     {children}
   </div>
 );
 
-const Chip = ({ active, onClick, children, color = '#E5C158', testid }) => (
+const Chip = ({ active, onClick, children, color = '#C9A227', testid }) => (
   <button onClick={onClick} data-testid={testid}
     style={active ? { background: color, color: '#14110A', borderColor: color } : {}}
-    className={`px-2.5 py-1 text-xs border border-white/10 rounded-sm transition hover:border-white/30 ${active ? 'font-semibold' : 'text-white/70'}`}>
+    className={`px-2.5 py-1 text-xs border border-[#D9CB94] rounded-sm transition hover:border-[#C9A227]/60 ${active ? 'font-semibold' : 'text-[#1A1505]'}`}>
     {children}
   </button>
 );
 
-const FilterPanel = ({ filters, setFilters, accentColor = '#E5C158', extra = {}, certLabs = ['IGI','GIA','GCAL'] }) => {
+const FilterPanel = ({ filters, setFilters, accentColor = '#C9A227', extra = {}, certLabs = ['IGI','GIA','GCAL'] }) => {
   const update = (key, val) => setFilters(f => ({ ...f, [key]: val }));
   const toggle = (key, val) => setFilters(f => ({ ...f, [key]: f[key] === val ? '' : val }));
 
@@ -41,14 +41,14 @@ const FilterPanel = ({ filters, setFilters, accentColor = '#E5C158', extra = {},
 
       <Section title={`Carat — ${filters.carat_min || 0} to ${filters.carat_max || 10}`}>
         <div className="flex gap-2">
-          <input type="number" step="0.01" placeholder="Min" value={filters.carat_min || ''} onChange={e => update('carat_min', e.target.value)} className="w-1/2 bg-[#1F1B12] border border-white/10 px-2 py-1.5 text-xs rounded-sm" data-testid="filter-carat-min"/>
-          <input type="number" step="0.01" placeholder="Max" value={filters.carat_max || ''} onChange={e => update('carat_max', e.target.value)} className="w-1/2 bg-[#1F1B12] border border-white/10 px-2 py-1.5 text-xs rounded-sm" data-testid="filter-carat-max"/>
+          <input type="number" step="0.01" placeholder="Min" value={filters.carat_min || ''} onChange={e => update('carat_min', e.target.value)} className="w-1/2 bg-white border border-[#D9CB94] px-2 py-1.5 text-xs rounded-sm" data-testid="filter-carat-min"/>
+          <input type="number" step="0.01" placeholder="Max" value={filters.carat_max || ''} onChange={e => update('carat_max', e.target.value)} className="w-1/2 bg-white border border-[#D9CB94] px-2 py-1.5 text-xs rounded-sm" data-testid="filter-carat-max"/>
         </div>
       </Section>
 
       {extra.fancyColor && (
         <Section title="Fancy Color Search">
-          <input type="text" placeholder="e.g. yellow, pink" value={filters.fancy_color || ''} onChange={e => update('fancy_color', e.target.value)} className="w-full bg-[#1F1B12] border border-white/10 px-2 py-1.5 text-xs rounded-sm" data-testid="filter-fancy-color"/>
+          <input type="text" placeholder="e.g. yellow, pink" value={filters.fancy_color || ''} onChange={e => update('fancy_color', e.target.value)} className="w-full bg-white border border-[#D9CB94] px-2 py-1.5 text-xs rounded-sm" data-testid="filter-fancy-color"/>
         </Section>
       )}
 
@@ -70,7 +70,7 @@ const FilterPanel = ({ filters, setFilters, accentColor = '#E5C158', extra = {},
       <Section title="Cut / Polish / Symmetry">
         {['cut','polish','symmetry'].map(k => (
           <div key={k} className="mb-2">
-            <div className="text-[10px] uppercase tracking-wider text-white/65 mb-1">{k}</div>
+            <div className="text-[10px] uppercase tracking-wider text-[#3D3520] mb-1">{k}</div>
             <div className="flex flex-wrap gap-1.5">
               {QUALITY.map(q => <Chip key={q} active={filters[k] === q} color={accentColor} onClick={() => toggle(k, q)} testid={`filter-${k}-${q.replace(/\s/g,'')}`}>{q.split(' ')[0]}</Chip>)}
             </div>
@@ -102,8 +102,8 @@ const FilterPanel = ({ filters, setFilters, accentColor = '#E5C158', extra = {},
 
       <Section title={`Price USD — ${filters.price_min || 0} to ${filters.price_max || '∞'}`}>
         <div className="flex gap-2">
-          <input type="number" placeholder="Min" value={filters.price_min || ''} onChange={e => update('price_min', e.target.value)} className="w-1/2 bg-[#1F1B12] border border-white/10 px-2 py-1.5 text-xs rounded-sm" data-testid="filter-price-min"/>
-          <input type="number" placeholder="Max" value={filters.price_max || ''} onChange={e => update('price_max', e.target.value)} className="w-1/2 bg-[#1F1B12] border border-white/10 px-2 py-1.5 text-xs rounded-sm" data-testid="filter-price-max"/>
+          <input type="number" placeholder="Min" value={filters.price_min || ''} onChange={e => update('price_min', e.target.value)} className="w-1/2 bg-white border border-[#D9CB94] px-2 py-1.5 text-xs rounded-sm" data-testid="filter-price-min"/>
+          <input type="number" placeholder="Max" value={filters.price_max || ''} onChange={e => update('price_max', e.target.value)} className="w-1/2 bg-white border border-[#D9CB94] px-2 py-1.5 text-xs rounded-sm" data-testid="filter-price-max"/>
         </div>
       </Section>
 

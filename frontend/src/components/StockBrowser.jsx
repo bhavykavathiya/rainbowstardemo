@@ -28,16 +28,16 @@ const StockBrowser = ({ category, accent, title, subtitle, headerBg, extra, argy
 
   return (
     <div data-testid={`stock-page-${category}`}>
-      <div className="relative border-b border-white/5 overflow-hidden" style={{ background: headerBg }}>
+      <div className="relative border-b border-[#E8DFC2] overflow-hidden" style={{ background: headerBg }}>
         <div className="absolute inset-0 grain opacity-30 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 py-16 relative">
           <div className="overline mb-3" style={{ color: accent }}>Inventory</div>
           <h1 className="font-serif text-5xl md:text-6xl mb-2">{title}</h1>
-          <p className="text-white/75 max-w-2xl">{subtitle}</p>
+          <p className="text-[#1A1505] max-w-2xl">{subtitle}</p>
           <div className="mt-8 flex flex-wrap gap-8 font-mono text-sm">
-            <div><div className="text-[10px] uppercase tracking-widest text-white/65">In Stock</div><div className="text-2xl" style={{ color: accent }}>{stats.total}</div></div>
-            <div><div className="text-[10px] uppercase tracking-widest text-white/65">Total Carats</div><div className="text-2xl text-white">{stats.ct}</div></div>
-            <div><div className="text-[10px] uppercase tracking-widest text-white/65">Inventory Value</div><div className="text-2xl text-white">${stats.val}</div></div>
+            <div><div className="text-[10px] uppercase tracking-widest text-[#3D3520]">In Stock</div><div className="text-2xl" style={{ color: accent }}>{stats.total}</div></div>
+            <div><div className="text-[10px] uppercase tracking-widest text-[#3D3520]">Total Carats</div><div className="text-2xl text-[#1A1505]">{stats.ct}</div></div>
+            <div><div className="text-[10px] uppercase tracking-widest text-[#3D3520]">Inventory Value</div><div className="text-2xl text-[#1A1505]">${stats.val}</div></div>
           </div>
         </div>
       </div>
@@ -47,25 +47,25 @@ const StockBrowser = ({ category, accent, title, subtitle, headerBg, extra, argy
         <div className="flex-1 min-w-0">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
             <div className="relative flex-1 max-w-md">
-              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/65"/>
-              <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Stock ID or certificate #…" className="w-full bg-[#1F1B12] border border-white/10 pl-9 pr-3 py-2 text-sm rounded-sm" data-testid="stock-search"/>
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#3D3520]"/>
+              <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Stock ID or certificate #…" className="w-full bg-white border border-[#D9CB94] pl-9 pr-3 py-2 text-sm rounded-sm" data-testid="stock-search"/>
             </div>
-            <div className="flex gap-1 bg-[#1F1B12] border border-white/10 p-0.5 rounded-sm">
-              <button onClick={() => setView('grid')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'grid' ? 'bg-[#E5C158] text-[#14110A]' : 'text-white/75'}`} data-testid="view-grid"><Grid3X3 size={13}/> Grid</button>
-              <button onClick={() => setView('table')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'table' ? 'bg-[#E5C158] text-[#14110A]' : 'text-white/75'}`} data-testid="view-table"><Rows size={13}/> Table</button>
+            <div className="flex gap-1 bg-white border border-[#D9CB94] p-0.5 rounded-sm">
+              <button onClick={() => setView('grid')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'grid' ? 'bg-[#C9A227] text-[#14110A]' : 'text-[#1A1505]'}`} data-testid="view-grid"><Grid3X3 size={13}/> Grid</button>
+              <button onClick={() => setView('table')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'table' ? 'bg-[#C9A227] text-[#14110A]' : 'text-[#1A1505]'}`} data-testid="view-table"><Rows size={13}/> Table</button>
             </div>
           </div>
 
           {loading ? (
-            <div className="py-20 text-center text-white/70"><Loader2 className="animate-spin inline mr-2" size={16}/> Loading inventory…</div>
+            <div className="py-20 text-center text-[#1A1505]"><Loader2 className="animate-spin inline mr-2" size={16}/> Loading inventory…</div>
           ) : stones.length === 0 ? (
-            <div className="py-20 text-center text-white/70 border border-dashed border-white/10">No stones match these filters. Adjust your selection.</div>
+            <div className="py-20 text-center text-[#1A1505] border border-dashed border-[#D9CB94]">No stones match these filters. Adjust your selection.</div>
           ) : view === 'grid' ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-testid="stock-grid">
               {stones.map(s => <StoneCard key={s.id} stone={s} accent={accent} argyleClass={argyleClass} />)}
             </div>
           ) : (
-            <div className="overflow-x-auto border border-white/5">
+            <div className="overflow-x-auto border border-[#E8DFC2]">
               <table className="stock-table w-full" data-testid="stock-table">
                 <thead><tr>
                   <th>Stock ID</th><th>Shape</th><th>Carat</th><th>Color</th><th>Clarity</th>

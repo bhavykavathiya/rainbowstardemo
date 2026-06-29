@@ -65,45 +65,45 @@ const AdminPanel = () => {
     finally { setUploading(u => ({ ...u, [fieldName]: false })); }
   };
 
-  if (checking || !user) return <div className="py-32 text-center text-white/70">Loading…</div>;
+  if (checking || !user) return <div className="py-32 text-center text-[#1A1505]">Loading…</div>;
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-10" data-testid="admin-panel">
       <div className="flex items-center justify-between mb-8">
-        <div><div className="overline text-[#E5C158]">Admin Panel</div><h1 className="font-serif text-4xl">Inventory Control</h1></div>
+        <div><div className="overline text-[#C9A227]">Admin Panel</div><h1 className="font-serif text-4xl">Inventory Control</h1></div>
         <div className="flex gap-2">
-          <button onClick={() => setTab('stock')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'stock' ? 'bg-[#E5C158] text-[#14110A] border-[#E5C158]' : 'border-white/15 text-white/70'}`} data-testid="tab-stock">Stock</button>
-          <button onClick={() => setTab('enquiries')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'enquiries' ? 'bg-[#E5C158] text-[#14110A] border-[#E5C158]' : 'border-white/15 text-white/70'}`} data-testid="tab-enquiries"><Mail size={12} className="inline mr-1"/>Enquiries ({enquiries.length})</button>
+          <button onClick={() => setTab('stock')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'stock' ? 'bg-[#C9A227] text-[#14110A] border-[#C9A227]' : 'border-[#C9A227]/40 text-[#1A1505]'}`} data-testid="tab-stock">Stock</button>
+          <button onClick={() => setTab('enquiries')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'enquiries' ? 'bg-[#C9A227] text-[#14110A] border-[#C9A227]' : 'border-[#C9A227]/40 text-[#1A1505]'}`} data-testid="tab-enquiries"><Mail size={12} className="inline mr-1"/>Enquiries ({enquiries.length})</button>
         </div>
       </div>
 
       {tab === 'stock' && (
         <>
-          <form onSubmit={save} className="bg-[#1F1B12] border border-white/5 p-6 mb-8" data-testid="admin-form">
+          <form onSubmit={save} className="bg-white border border-[#E8DFC2] p-6 mb-8" data-testid="admin-form">
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-serif text-2xl">{editing ? 'Edit Diamond' : 'Add Diamond'}</h2>
-              {editing && <button type="button" onClick={() => { setEditing(null); setForm(EMPTY); }} className="text-xs text-white/70 hover:text-white">Cancel</button>}
+              {editing && <button type="button" onClick={() => { setEditing(null); setForm(EMPTY); }} className="text-xs text-[#1A1505] hover:text-[#1A1505]">Cancel</button>}
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <input required placeholder="Stock ID *" value={form.stock_id} onChange={e => setForm({...form, stock_id: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm" data-testid="form-stockid"/>
-              <select value={form.category} onChange={e => setForm({...form, category: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm" data-testid="form-category">
+              <input required placeholder="Stock ID *" value={form.stock_id} onChange={e => setForm({...form, stock_id: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm" data-testid="form-stockid"/>
+              <select value={form.category} onChange={e => setForm({...form, category: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm" data-testid="form-category">
                 <option value="cvd">CVD</option><option value="natural">Natural</option>
                 <option value="argyle_pink">Argyle Pink</option><option value="argyle_blue">Argyle Blue</option>
               </select>
-              <input required placeholder="Shape" value={form.shape} onChange={e => setForm({...form, shape: e.target.value.toUpperCase()})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input required type="number" step="0.01" placeholder="Carat" value={form.carat} onChange={e => setForm({...form, carat: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Color" value={form.color} onChange={e => setForm({...form, color: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Clarity" value={form.clarity} onChange={e => setForm({...form, clarity: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Cut" value={form.cut} onChange={e => setForm({...form, cut: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Polish" value={form.polish} onChange={e => setForm({...form, polish: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Symmetry" value={form.symmetry} onChange={e => setForm({...form, symmetry: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Fluorescence" value={form.fluorescence} onChange={e => setForm({...form, fluorescence: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Cert Lab" value={form.certificate_lab} onChange={e => setForm({...form, certificate_lab: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Cert #" value={form.certificate_number} onChange={e => setForm({...form, certificate_number: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input type="number" placeholder="$/ct" value={form.price_per_carat} onChange={e => setForm({...form, price_per_carat: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input type="number" placeholder="Total $" value={form.total_price} onChange={e => setForm({...form, total_price: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Origin" value={form.origin} onChange={e => setForm({...form, origin: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
-              <input placeholder="Treatment" value={form.treatment} onChange={e => setForm({...form, treatment: e.target.value})} className="bg-[#1F1B12] border border-white/10 px-3 py-2 text-sm"/>
+              <input required placeholder="Shape" value={form.shape} onChange={e => setForm({...form, shape: e.target.value.toUpperCase()})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input required type="number" step="0.01" placeholder="Carat" value={form.carat} onChange={e => setForm({...form, carat: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Color" value={form.color} onChange={e => setForm({...form, color: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Clarity" value={form.clarity} onChange={e => setForm({...form, clarity: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Cut" value={form.cut} onChange={e => setForm({...form, cut: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Polish" value={form.polish} onChange={e => setForm({...form, polish: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Symmetry" value={form.symmetry} onChange={e => setForm({...form, symmetry: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Fluorescence" value={form.fluorescence} onChange={e => setForm({...form, fluorescence: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Cert Lab" value={form.certificate_lab} onChange={e => setForm({...form, certificate_lab: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Cert #" value={form.certificate_number} onChange={e => setForm({...form, certificate_number: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input type="number" placeholder="$/ct" value={form.price_per_carat} onChange={e => setForm({...form, price_per_carat: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input type="number" placeholder="Total $" value={form.total_price} onChange={e => setForm({...form, total_price: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Origin" value={form.origin} onChange={e => setForm({...form, origin: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
+              <input placeholder="Treatment" value={form.treatment} onChange={e => setForm({...form, treatment: e.target.value})} className="bg-white border border-[#D9CB94] px-3 py-2 text-sm"/>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
               {[
@@ -111,52 +111,52 @@ const AdminPanel = () => {
                 { field: 'certificate_url', folder: 'certificates', icon: FileText, label: 'Certificate PDF', accept: 'application/pdf' },
                 { field: 'video_url', folder: 'videos', icon: Video, label: 'Video', accept: 'video/*' },
               ].map(u => (
-                <div key={u.field} className="border border-dashed border-white/10 p-3">
-                  <label className="text-xs text-white/75 flex items-center gap-2 mb-2"><u.icon size={14} className="text-[#E5C158]"/>{u.label}</label>
+                <div key={u.field} className="border border-dashed border-[#D9CB94] p-3">
+                  <label className="text-xs text-[#1A1505] flex items-center gap-2 mb-2"><u.icon size={14} className="text-[#C9A227]"/>{u.label}</label>
                   {form[u.field] && <div className="text-[10px] text-green-400 mb-2 truncate">✓ {form[u.field].split('/').pop()}</div>}
                   <input type="file" accept={u.accept} onChange={e => e.target.files[0] && upload(e.target.files[0], u.folder, u.field)} className="text-xs w-full" data-testid={`upload-${u.field}`}/>
-                  {uploading[u.field] && <div className="text-[10px] text-[#E5C158] mt-1">Uploading…</div>}
+                  {uploading[u.field] && <div className="text-[10px] text-[#C9A227] mt-1">Uploading…</div>}
                 </div>
               ))}
             </div>
             <button type="submit" className="btn-gold mt-4" data-testid="form-submit"><Plus size={14}/>{editing ? 'Update' : 'Add'} Diamond</button>
           </form>
 
-          <div className="overflow-x-auto bg-[#1F1B12] border border-white/5">
+          <div className="overflow-x-auto bg-white border border-[#E8DFC2]">
             <table className="stock-table w-full text-xs" data-testid="admin-stock-table">
               <thead><tr><th>ID</th><th>Cat</th><th>Shape</th><th>Carat</th><th>Color</th><th>Clarity</th><th>Cert</th><th>$</th><th>Action</th></tr></thead>
               <tbody>{stones.slice(0, 100).map(s => (
                 <tr key={s.id}>
-                  <td className="font-mono text-[#E5C158]">{s.stock_id}</td>
+                  <td className="font-mono text-[#C9A227]">{s.stock_id}</td>
                   <td>{s.category}</td><td>{s.shape}</td><td>{s.carat}</td>
                   <td className="max-w-[160px] truncate" title={s.color}>{s.color}</td><td>{s.clarity}</td>
                   <td>{s.certificate_lab}</td><td className="font-mono">${s.total_price?.toLocaleString()}</td>
                   <td className="flex gap-1">
-                    <button onClick={() => startEdit(s)} className="px-2 py-1 border border-white/10 text-[10px]" data-testid={`edit-${s.stock_id}`}>Edit</button>
+                    <button onClick={() => startEdit(s)} className="px-2 py-1 border border-[#D9CB94] text-[10px]" data-testid={`edit-${s.stock_id}`}>Edit</button>
                     <button onClick={() => del(s.id)} className="px-2 py-1 border border-red-500/30 text-red-400 text-[10px]" data-testid={`del-${s.stock_id}`}><Trash2 size={10}/></button>
                   </td>
                 </tr>
               ))}</tbody>
             </table>
-            <div className="px-4 py-3 text-xs text-white/65">Showing {Math.min(100, stones.length)} of {stones.length}</div>
+            <div className="px-4 py-3 text-xs text-[#3D3520]">Showing {Math.min(100, stones.length)} of {stones.length}</div>
           </div>
         </>
       )}
 
       {tab === 'enquiries' && (
         <div className="space-y-3" data-testid="enquiry-list">
-          {enquiries.length === 0 && <div className="text-white/70 py-12 text-center">No enquiries yet</div>}
+          {enquiries.length === 0 && <div className="text-[#1A1505] py-12 text-center">No enquiries yet</div>}
           {enquiries.map(e => (
-            <div key={e.id} className="bg-[#1F1B12] border border-white/5 p-5">
+            <div key={e.id} className="bg-white border border-[#E8DFC2] p-5">
               <div className="flex justify-between gap-4">
                 <div>
-                  <div className="font-serif text-xl">{e.name} {e.company && <span className="text-white/65 text-sm">· {e.company}</span>}</div>
-                  <div className="text-xs text-white/75 mt-1">{e.email} · {e.phone || '—'} · {new Date(e.created_at).toLocaleString()}</div>
-                  {e.message && <div className="text-sm text-white/70 mt-3 whitespace-pre-wrap">{e.message}</div>}
+                  <div className="font-serif text-xl">{e.name} {e.company && <span className="text-[#3D3520] text-sm">· {e.company}</span>}</div>
+                  <div className="text-xs text-[#1A1505] mt-1">{e.email} · {e.phone || '—'} · {new Date(e.created_at).toLocaleString()}</div>
+                  {e.message && <div className="text-sm text-[#1A1505] mt-3 whitespace-pre-wrap">{e.message}</div>}
                 </div>
                 <div className="text-right text-xs">
-                  <div className="text-[#E5C158]">{e.stone_ids?.length || 0} stones</div>
-                  <div className="text-white/65">via {e.source}</div>
+                  <div className="text-[#C9A227]">{e.stone_ids?.length || 0} stones</div>
+                  <div className="text-[#3D3520]">via {e.source}</div>
                 </div>
               </div>
             </div>
