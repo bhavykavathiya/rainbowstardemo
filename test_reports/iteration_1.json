@@ -1,0 +1,30 @@
+{
+  "summary": "First-finish smoke test for Rainbow Star light-theme B2B diamond site. Verified backend smoke endpoints (stats, diamonds filters, auth login/register, enquiries, request-stone, newsletter) and core frontend flows (home, contact, login gate, guest login, /natural combined inventory, Single/Box toggle, add-to-enquiry single-toast fix). All critical checks passed. Single toast confirmed (no StrictMode double-fire).",
+  "tested_scope": ["frontend", "backend", "auth", "integration"],
+  "passed": [
+    "GET /api/diamonds/stats 200 — total=89, by_category includes cvd/natural/argyle_pink/argyle_blue",
+    "GET /api/diamonds?category=cvd&parcel_type=single 200 — returns CVD singles",
+    "GET /api/diamonds?categories=natural,argyle_pink,argyle_blue 200 — combined natural inventory",
+    "POST /api/auth/login admin@rainbowstar.in 200 — admin role",
+    "POST /api/auth/register fresh buyer 200",
+    "POST /api/enquiries with correct payload (name/email/stone_ids) 200",
+    "POST /api/request-stone 200, POST /api/newsletter 200",
+    "Homepage shows 5000+ counter; NO 'RAINBOW STAR · EST. SURAT, INDIA' tagline; NO old phone 8145644444",
+    "Contact page shows new WhatsApp +91 98259 28587; no old phone present",
+    "/cvd Login Gate displays with 'Continue as Guest' button when not authed",
+    "/login page shows 'Continue as Guest →' button; clicking navigates to /natural",
+    "/natural after guest login shows Single Diamond / Diamond Box toggle (data-testid toggle-single & toggle-parcel) WITHOUT 'Mixed parcels' subtitle",
+    "Toggle between Single and Diamond Box works without errors",
+    "Add to enquiry on CVD-001 fires exactly ONE sonner toast 'CVD-001 added to enquiry' — duplicate-toast bug is fixed",
+    "Basket FAB badge updates to 1 after adding stone",
+    "Navbar shows logo image + 'Rainbow Star' wordmark"
+  ],
+  "failed": [],
+  "action_items": [
+    "MINOR (informational, not a blocker): 8 benign 401 console errors on /api/auth/me when browsing as guest — expected behaviour but consider suppressing to keep console clean."
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Admin /admin panel CRUD not deeply exercised in this fast pass; recommend full QA pass for admin Add Diamond form and Enquiry inbox in next round. Argyle glow borders visually present (Argyle stones rendered on /natural)."
+}
