@@ -80,6 +80,7 @@ const Home = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="mt-10 flex flex-wrap gap-4">
               <Link to="/natural" className="btn-gold" data-testid="hero-explore-natural">Explore Inventory <ArrowRight size={16}/></Link>
               <a href={buildWhatsappLink('Hello Rainbow Star, I would like to view your diamond inventory.')} target="_blank" rel="noreferrer" className="btn-outline-gold" data-testid="hero-whatsapp">WhatsApp Trade Desk</a>
+            </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="mt-12 inline-flex items-baseline gap-3 border-l-2 pl-5" style={{ borderColor: '#C9A227' }} data-testid="hero-stock-counter">
               <span className="font-mono text-5xl font-light text-[#C9A227]">{Math.max(displayCount,5000)}+</span>
               <span className="text-xs uppercase tracking-[0.3em] text-[#1A1505]">Diamonds in stock — updated live</span>
