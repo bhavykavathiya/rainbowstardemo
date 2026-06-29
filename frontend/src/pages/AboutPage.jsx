@@ -103,14 +103,11 @@ export const About = () => {
         <h2 className="font-serif text-4xl md:text-5xl mb-12 text-center">Leadership rooted in vision</h2>
         <div className="grid md:grid-cols-5 gap-10 items-start">
           <div className="md:col-span-2">
-            <div className="aspect-[3/4] bg-gradient-to-br from-[#FFF8E1] to-white border border-[#D9CB94] flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 grain opacity-30"/>
-              <div className="text-center relative z-10 px-4">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#C9A227]/30 to-[#B8923A]/10 border-2 border-[#C9A227]/40 flex items-center justify-center mb-5">
-                  <span className="font-serif text-5xl text-[#E5BB2E]">JK</span>
-                </div>
-                <div className="font-serif text-2xl text-[#E5BB2E]">Jayesh Kavathiya</div>
-                <div className="text-xs uppercase tracking-[0.25em] text-[#1A1505] mt-1">Chairman · Rainbow Star</div>
+            <div className="aspect-[3/4] bg-gradient-to-br from-[#FFF8E1] to-white border border-[#D9CB94] relative overflow-hidden">
+              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/jy31ay20_79E5BFC6-6CCB-4504-AAE0-63BA73627589.png" alt="Jayesh Kavathiya, Chairman of Rainbow Star" className="w-full h-full object-cover"/>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 via-black/40 to-transparent p-5">
+                <div className="font-serif text-2xl text-white">Jayesh Kavathiya</div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-white/90 mt-1">Chairman · Rainbow Star</div>
               </div>
             </div>
           </div>

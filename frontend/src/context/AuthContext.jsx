@@ -23,19 +23,33 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const { data } = await api.post('/auth/login', { email, password });
     setUser(data);
+    localStorage.removeItem('rs_guest');
     return data;
   };
   const register = async (payload) => {
     const { data } = await api.post('/auth/register', payload);
     setUser(data);
+    localStorage.removeItem('rs_guest');
     return data;
   };
+  const loginAsGuest = () => {
+    localStorage.setItem('rs_guest', '1');
+    setUser({ role: 'guest', name: 'Guest', email: 'guest@rainbowstar.in' });
+  };
   const logout = async () => {
-    await api.post('/auth/logout');
+    try { await api.post('/auth/logout'); } catch {}
+    localStorage.removeItem('rs_guest');
     setUser(false);
   };
 
-  return <AuthContext.Provider value={{ user, checking, login, register, logout, refresh }}>{children}</AuthContext.Provider>;
+  // Restore guest session on mount if no real user
+  useEffect(() => {
+    if (user === false && localStorage.getItem('rs_guest') === '1') {
+      setUser({ role: 'guest', name: 'Guest', email: 'guest@rainbowstar.in' });
+    }
+  }, [user]);
+
+  return <AuthContext.Provider value={{ user, checking, login, register, loginAsGuest, logout, refresh }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => useContext(AuthContext);
