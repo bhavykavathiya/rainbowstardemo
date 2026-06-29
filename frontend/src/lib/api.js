@@ -14,10 +14,10 @@ export const formatApiErrorDetail = (detail) => {
 };
 
 export const CONTACT = {
-  whatsapp: '919712193000',
-  whatsappDisplay: '+91 97121 93000',
-  chairmanWhatsapp: '919825928587',
-  chairmanDisplay: '+91 98259 28587',
+  whatsapp: '919825928587',
+  whatsappDisplay: '+91 98259 28587',
+  salesWhatsapp: '919712193000',
+  salesDisplay: '+91 97121 93000',
   logoUrl: 'https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg',
   email: 'info@rainbowstar.in',
   brand: 'Rainbow Star',

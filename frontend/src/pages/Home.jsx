@@ -70,7 +70,6 @@ const Home = () => {
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="overline mb-5" style={{ color: '#C9A227' }}>Rainbow Star · Est. Surat, India</motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }} className="font-serif leading-[0.95] text-5xl sm:text-6xl md:text-7xl mb-6">
               Rare Diamonds.<br/>Real Value.<br/>
               <span className="refraction">Rainbow Star.</span>
@@ -81,9 +80,8 @@ const Home = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="mt-10 flex flex-wrap gap-4">
               <Link to="/natural" className="btn-gold" data-testid="hero-explore-natural">Explore Inventory <ArrowRight size={16}/></Link>
               <a href={buildWhatsappLink('Hello Rainbow Star, I would like to view your diamond inventory.')} target="_blank" rel="noreferrer" className="btn-outline-gold" data-testid="hero-whatsapp">WhatsApp Trade Desk</a>
-            </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="mt-12 inline-flex items-baseline gap-3 border-l-2 pl-5" style={{ borderColor: '#C9A227' }} data-testid="hero-stock-counter">
-              <span className="font-mono text-5xl font-light text-[#C9A227]">{displayCount}+</span>
+              <span className="font-mono text-5xl font-light text-[#C9A227]">{Math.max(displayCount,5000)}+</span>
               <span className="text-xs uppercase tracking-[0.3em] text-[#1A1505]">Diamonds in stock — updated live</span>
             </motion.div>
           </div>
