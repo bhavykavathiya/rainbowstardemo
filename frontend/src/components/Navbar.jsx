@@ -28,9 +28,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 border-b border-[#E8DFC2] bg-white/85 backdrop-blur-xl" data-testid="navbar">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3" data-testid="nav-logo">
-          <div className="w-9 h-9 border border-[#C9A227] rotate-45 flex items-center justify-center">
-            <div className="w-2 h-2 bg-[#C9A227] rotate-45" />
-          </div>
+          <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-11 h-11 object-contain" />
           <div>
             <div className="font-serif text-xl tracking-wide refraction">Rainbow Star</div>
             <div className="text-[9px] tracking-[0.3em] text-[#3D3520] uppercase -mt-1">B2B Diamond House</div>

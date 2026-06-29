@@ -18,7 +18,7 @@ const TILES = [
 const BADGES = [
   { icon: Award, label: 'GIA Certified' },
   { icon: Award, label: 'IGI Certified' },
-  { icon: Sparkles, label: 'Argyle Certified' },
+  
   { icon: Shield, label: 'Conflict Free' },
   { icon: Globe, label: 'Worldwide Shipping' },
 ];

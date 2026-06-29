@@ -14,13 +14,13 @@ export const NaturalPage = () => (
 );
 
 export const ArgylePinkPage = () => (
-  <StockBrowser category="argyle_pink" accent="#B7536B" title="Argyle Pink Diamonds" subtitle="The world's rarest pinks from the now-closed Argyle Mine. Each stone a piece of geological history."
+  <StockBrowser category="argyle_pink" accent="#B7536B" title="Argyle Pink Diamonds" subtitle="Only 0.1% of all diamonds mined are pink. From the now-closed Argyle Mine in Western Australia — the source of over 90% of the world's pink diamonds — each stone is a finite piece of geological history. Rarer with every passing year."
     headerBg="linear-gradient(135deg, #FFF7F9 0%, #FFE4EB 50%, #FFF7F9 100%)"
     extra={{ origin: true, fancyColor: true }} argyleClass="argyle-glow-pink" certLabs={['GIA Fancy Color','GIA','HRD']} />
 );
 
 export const ArgyleBluePage = () => (
-  <StockBrowser category="argyle_blue" accent="#2F8FCB" title="Argyle Blue Diamonds" subtitle="Whispers of violet, depths of ocean. The rarest Argyle blues — fewer than 100 carats produced in the mine's final years."
+  <StockBrowser category="argyle_blue" accent="#2F8FCB" title="Argyle Blue Diamonds" subtitle="Rare are the Pinks. Legendary are the Blues. Only 1 in 50,000 to 100,000 diamonds ever mined displays a true blue hue — and Argyle's violet-blues are the rarest of all. Whispers of violet, depths of ocean, the last of a vanished mine."
     headerBg="linear-gradient(135deg, #F5FAFD 0%, #DCEEF8 50%, #F5FAFD 100%)"
     extra={{ origin: true, fancyColor: true }} argyleClass="argyle-glow-blue" certLabs={['GIA Fancy Color','GIA','HRD']} />
 );
