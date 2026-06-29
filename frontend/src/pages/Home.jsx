@@ -87,11 +87,18 @@ const Home = () => {
             </motion.div>
           </div>
           <div className="lg:col-span-5 relative hidden lg:flex items-center justify-center min-h-[640px]">
+            <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden>
+              <defs>
+                <filter id="rs-key-white">
+                  <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -1 -1 -1 0 3" />
+                </filter>
+              </defs>
+            </svg>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[600px] h-[600px] rounded-full bg-[#E5BB2E]/12 blur-3xl"/>
+              <div className="w-[560px] h-[560px] rounded-full bg-[#E5BB2E]/15 blur-3xl"/>
             </div>
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 45, repeat: Infinity, ease: 'linear' }} className="relative w-[620px] h-[620px] flex items-center justify-center">
-              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-full h-full object-contain drop-shadow-[0_0_60px_rgba(229,187,46,0.5)]" style={{ WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 38%, transparent 48%)', maskImage: 'radial-gradient(circle at 50% 50%, black 38%, transparent 48%)' }} />
+              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-full h-full object-contain drop-shadow-[0_0_60px_rgba(229,187,46,0.5)]" style={{ mixBlendMode: 'multiply' }} />
             </motion.div>
           </div>
         </div>
