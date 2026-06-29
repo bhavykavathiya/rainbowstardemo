@@ -4,20 +4,23 @@ import FilterPanel from '../components/FilterPanel';
 import { StoneCard, StoneRow } from '../components/Stone';
 import { Grid3X3, Rows, Search, Loader2 } from 'lucide-react';
 
-const StockBrowser = ({ category, accent, title, subtitle, headerBg, extra, argyleClass, certLabs }) => {
+const StockBrowser = ({ category, categories, accent, title, subtitle, headerBg, extra, argyleClass, certLabs }) => {
   const [filters, setFilters] = useState({});
   const [stones, setStones] = useState([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState('grid');
   const [search, setSearch] = useState('');
+  const [parcelType, setParcelType] = useState('single'); // 'single' | 'parcel'
 
   useEffect(() => {
     setLoading(true);
-    const params = { category, ...filters };
+    const params = { ...filters, parcel_type: parcelType };
+    if (categories) params.categories = categories.join(',');
+    else if (category) params.category = category;
     Object.keys(params).forEach(k => (params[k] === '' || params[k] == null) && delete params[k]);
     if (search) params.search = search;
     api.get('/diamonds', { params }).then(({ data }) => setStones(data)).finally(() => setLoading(false));
-  }, [category, filters, search]);
+  }, [category, categories, filters, search, parcelType]);
 
   const stats = useMemo(() => {
     const total = stones.length;
@@ -40,6 +43,20 @@ const StockBrowser = ({ category, accent, title, subtitle, headerBg, extra, argy
             <div><div className="text-[10px] uppercase tracking-widest text-[#3D3520]">Inventory Value</div><div className="text-2xl text-[#1A1505]">${stats.val}</div></div>
           </div>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 pt-8">
+        <div className="inline-flex bg-white border border-[#D9CB94] rounded-sm p-1" data-testid="parcel-toggle">
+          <button onClick={() => setParcelType('single')} className={`px-5 py-2 text-xs uppercase tracking-widest transition ${parcelType === 'single' ? 'text-[#1A1505]' : 'text-[#6B5F3D] hover:text-[#1A1505]'}`} style={parcelType === 'single' ? { background: accent, color: '#fff' } : {}} data-testid="toggle-single">
+            Single Stones
+          </button>
+          <button onClick={() => setParcelType('parcel')} className={`px-5 py-2 text-xs uppercase tracking-widest transition ${parcelType === 'parcel' ? 'text-[#1A1505]' : 'text-[#6B5F3D] hover:text-[#1A1505]'}`} style={parcelType === 'parcel' ? { background: accent, color: '#fff' } : {}} data-testid="toggle-parcel">
+            Color Lots (Parcels)
+          </button>
+        </div>
+        <p className="text-[10px] text-[#6B5F3D] mt-2 tracking-wider">
+          {parcelType === 'single' ? '· Certified single-stone inventory' : '· Mixed parcels — 28–42 pcs per lot, matched color'}
+        </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row gap-8">

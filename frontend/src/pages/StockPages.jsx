@@ -12,7 +12,7 @@ export const CvdPage = () => (
 
 export const NaturalPage = () => (
   <LoginGate>
-    <StockBrowser category="natural" accent="#C9A227" title="Natural Diamonds" subtitle="Earth-mined fancy color & colorless naturals — GIA, HRD & IGI certified, ethically sourced."
+    <StockBrowser categories={['natural','argyle_pink','argyle_blue']} accent="#C9A227" title="Natural Diamonds" subtitle="Our complete natural inventory — white &amp; colorless, fancy color, and the world's rarest Argyle Pink &amp; Argyle Blue. Earth-mined, GIA/HRD/IGI certified, ethically sourced."
       headerBg="linear-gradient(135deg, #FFFDF7 0%, #FFF8E1 50%, #FAF6E8 100%)"
       extra={{ origin: true, fancyColor: true }} certLabs={['GIA','GIA Fancy Color','HRD','IGI']} />
   </LoginGate>

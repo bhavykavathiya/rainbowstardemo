@@ -164,6 +164,9 @@ class DiamondIn(BaseModel):
     video_url: Optional[str] = None
     notes: Optional[str] = None
     status: str = 'available'
+    parcel_type: str = 'single'  # 'single' | 'parcel'
+    parcel_pieces: Optional[int] = None
+    parcel_total_carat: Optional[float] = None
 
 class EnquiryIn(BaseModel):
     name: str
@@ -231,6 +234,8 @@ async def me(user: dict = Depends(get_current_user)):
 @api_router.get('/diamonds')
 async def list_diamonds(
     category: Optional[str] = None,
+    categories: Optional[str] = None,  # comma-separated list
+    parcel_type: Optional[str] = None,  # 'single' | 'parcel'
     shape: Optional[str] = None,
     color: Optional[str] = None,
     clarity: Optional[str] = None,
@@ -248,7 +253,11 @@ async def list_diamonds(
     limit: int = 500
 ):
     q = {'status': {'$ne': 'archived'}}
-    if category: q['category'] = category
+    if categories:
+        cat_list = [c.strip() for c in categories.split(',') if c.strip()]
+        if cat_list: q['category'] = {'$in': cat_list}
+    elif category: q['category'] = category
+    if parcel_type: q['parcel_type'] = parcel_type
     if shape: q['shape'] = shape.upper()
     if color: q['color'] = {'$regex': color, '$options': 'i'}
     if clarity: q['clarity'] = clarity
@@ -529,32 +538,42 @@ async def seed_diamonds():
             'created_at': now
         })
 
-    # Argyle Pink
+    # Argyle Pink — first 6 are single stones, rest are parcels (30-40 pieces each)
     for i, (sid, ct, shape, color, clarity, ppc, total) in enumerate(argyle_pink_stones):
+        is_parcel = i >= 6
+        pieces = (28 + (i % 12)) if is_parcel else None
         docs.append({
             'stock_id': sid, 'category': 'argyle_pink', 'shape': shape, 'carat': ct, 'color': color,
             'clarity': clarity, 'cut': cuts[i % 3], 'polish': 'Excellent', 'symmetry': 'Excellent',
-            'fluorescence': 'None', 'certificate_lab': 'GIA Fancy Color',
-            'certificate_number': f'ARG-P-{1000 + i}', 'certificate_url': None,
-            'price_per_carat': ppc, 'total_price': total,
+            'fluorescence': 'None', 'certificate_lab': 'GIA Fancy Color' if not is_parcel else None,
+            'certificate_number': f'ARG-P-{1000 + i}' if not is_parcel else None, 'certificate_url': None,
+            'price_per_carat': ppc, 'total_price': total if not is_parcel else round(total * (pieces or 1) * 0.85),
             'origin': 'Argyle — Australia', 'diamond_type': 'Ia', 'treatment': 'None',
             'is_fancy_color': True, 'fancy_color': color, 'fancy_intensity': _intensity_from(color.upper()),
-            'image_url': None, 'video_url': None, 'notes': 'Argyle Mine — Tier 1',
-            'status': 'available', 'created_at': now
+            'image_url': None, 'video_url': None,
+            'notes': f'Parcel lot — {pieces} pcs, mixed sizes' if is_parcel else 'Argyle Mine — Tier 1',
+            'status': 'available', 'created_at': now,
+            'parcel_type': 'parcel' if is_parcel else 'single',
+            'parcel_pieces': pieces, 'parcel_total_carat': round(ct * (pieces or 1), 2) if is_parcel else None,
         })
 
-    # Argyle Blue
+    # Argyle Blue — first 4 single, rest parcels
     for i, (sid, ct, shape, color, clarity, ppc, total) in enumerate(argyle_blue_stones):
+        is_parcel = i >= 4
+        pieces = (32 + (i % 10)) if is_parcel else None
         docs.append({
             'stock_id': sid, 'category': 'argyle_blue', 'shape': shape, 'carat': ct, 'color': color,
             'clarity': clarity, 'cut': cuts[i % 3], 'polish': 'Excellent', 'symmetry': 'Very Good',
-            'fluorescence': 'None', 'certificate_lab': 'GIA Fancy Color',
-            'certificate_number': f'ARG-B-{2000 + i}', 'certificate_url': None,
-            'price_per_carat': ppc, 'total_price': total,
+            'fluorescence': 'None', 'certificate_lab': 'GIA Fancy Color' if not is_parcel else None,
+            'certificate_number': f'ARG-B-{2000 + i}' if not is_parcel else None, 'certificate_url': None,
+            'price_per_carat': ppc, 'total_price': total if not is_parcel else round(total * (pieces or 1) * 0.85),
             'origin': 'Argyle — Australia', 'diamond_type': 'IIb', 'treatment': 'None',
             'is_fancy_color': True, 'fancy_color': color, 'fancy_intensity': _intensity_from(color.upper()),
-            'image_url': None, 'video_url': None, 'notes': 'Argyle Mine — Rare Blue',
-            'status': 'available', 'created_at': now
+            'image_url': None, 'video_url': None,
+            'notes': f'Parcel lot — {pieces} pcs, mixed sizes' if is_parcel else 'Argyle Mine — Rare Blue',
+            'status': 'available', 'created_at': now,
+            'parcel_type': 'parcel' if is_parcel else 'single',
+            'parcel_pieces': pieces, 'parcel_total_carat': round(ct * (pieces or 1), 2) if is_parcel else None,
         })
 
     # CVD
