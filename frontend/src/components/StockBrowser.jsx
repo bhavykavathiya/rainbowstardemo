@@ -48,15 +48,12 @@ const StockBrowser = ({ category, categories, accent, title, subtitle, headerBg,
       <div className="max-w-7xl mx-auto px-6 pt-8">
         <div className="inline-flex bg-white border border-[#D9CB94] rounded-sm p-1" data-testid="parcel-toggle">
           <button onClick={() => setParcelType('single')} className={`px-5 py-2 text-xs uppercase tracking-widest transition ${parcelType === 'single' ? 'text-[#1A1505]' : 'text-[#6B5F3D] hover:text-[#1A1505]'}`} style={parcelType === 'single' ? { background: accent, color: '#fff' } : {}} data-testid="toggle-single">
-            Single Stones
+            Single Diamond
           </button>
           <button onClick={() => setParcelType('parcel')} className={`px-5 py-2 text-xs uppercase tracking-widest transition ${parcelType === 'parcel' ? 'text-[#1A1505]' : 'text-[#6B5F3D] hover:text-[#1A1505]'}`} style={parcelType === 'parcel' ? { background: accent, color: '#fff' } : {}} data-testid="toggle-parcel">
-            Color Lots (Parcels)
+            Diamond Box
           </button>
         </div>
-        <p className="text-[10px] text-[#6B5F3D] mt-2 tracking-wider">
-          {parcelType === 'single' ? '· Certified single-stone inventory' : '· Mixed parcels — 28–42 pcs per lot, matched color'}
-        </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row gap-8">
