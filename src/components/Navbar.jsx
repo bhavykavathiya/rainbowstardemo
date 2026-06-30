@@ -31,7 +31,6 @@ const Navbar = () => {
           <div>
             <div className="font-serif text-xl tracking-wide refraction">Rainbow Star</div>
             <div className="text-[9px] tracking-[0.3em] text-[#3D3520] uppercase -mt-1">B2B Diamond House</div>
-            <div className="text-[9px] tracking-[0.3em] text-[#3D3520] uppercase -mt-1">B2B Diamond House</div>
           </div>
         </Link>
 

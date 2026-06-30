@@ -16,8 +16,8 @@ const TILES = [
 ];
 
 const BADGES = [
-  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/GIA_logo.svg/200px-GIA_logo.svg.png', alt: 'GIA Certified', label: 'GIA Certified', sub: 'Certified Since 1931', filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.9)' },
-  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/IGI_logo.svg/200px-IGI_logo.svg.png', alt: 'IGI Certified', label: 'IGI Certified', sub: 'Founded 1975', filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.9)' },
+  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/GIA_logo.svg/200px-GIA_logo.svg.png', alt: 'GIA Certified', label: 'GIA Certified', filter: 'brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(5deg) brightness(0.85)' },
+  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/IGI_logo.svg/200px-IGI_logo.svg.png', alt: 'IGI Certified', label: 'IGI Certified', filter: 'brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(5deg) brightness(0.85)' },
   { type: 'icon', Icon: ShieldCheck, alt: 'Conflict Free', label: 'Conflict Free', sub: 'Kimberley Certified', color: '#b8960c' },
   { type: 'icon', Icon: Globe, alt: 'Worldwide Shipping', label: 'Worldwide Shipping', sub: '32+ Countries', color: '#b8960c' },
 ];
@@ -104,8 +104,8 @@ const Home = () => {
       </section>
 
       {/* TRUST BADGES */}
-      <section className="bg-[#0d0d0d] py-16" data-testid="trust-badges">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="bg-[#0d0d0d] py-10" data-testid="trust-badges">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
           {BADGES.map(b => (
             <div key={b.label} className="trust-badge" data-testid={`badge-${b.label.replace(/\s+/g,'-').toLowerCase()}`}>
               {b.type === 'logo' ? (
@@ -114,7 +114,7 @@ const Home = () => {
                 <div className="badge-icon"><b.Icon size={40} strokeWidth={1.5} style={{ color: b.color }} /></div>
               )}
               <div className="badge-label">{b.label}</div>
-              <div className="badge-sub">{b.sub}</div>
+              {b.sub && <div className="badge-sub">{b.sub}</div>}
             </div>
           ))}
         </div>
