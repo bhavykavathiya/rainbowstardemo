@@ -14,8 +14,8 @@ export const CONTACT = {
 export const buildWhatsappLink = (text) => `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`;
 
 export const CATEGORY_META = {
-  cvd: { label: 'CVD Diamonds', accent: '#C9A227', tagline: 'Lab-grown brilliance, certified perfection' },
-  natural: { label: 'Natural Diamonds', accent: '#C9A227', tagline: 'Earth\'s rarest treasures, ethically sourced' },
+  cvd: { label: 'CVD Diamonds', accent: '#b8960c', tagline: 'Lab-grown brilliance, certified perfection' },
+  natural: { label: 'Natural Diamonds', accent: '#b8960c', tagline: 'Earth\'s rarest treasures, ethically sourced' },
   argyle_pink: { label: 'Argyle Pink', accent: '#B7536B', tagline: 'The rarest pinks from a closed mine' },
   argyle_blue: { label: 'Argyle Blue', accent: '#2F8FCB', tagline: 'Whispers of violet, depths of ocean' },
 };

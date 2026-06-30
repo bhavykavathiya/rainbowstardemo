@@ -13,9 +13,9 @@
   --rs-text: #1A1505;
   --rs-text-2: #3D3520;
   --rs-text-3: #6B5F3D;
-  --rs-gold: #C9A227;
-  --rs-gold-bright: #E5BB2E;
-  --rs-gold-deep: #9B7A14;
+  --rs-gold: #b8960c;
+  --rs-gold-bright: #d4af37;
+  --rs-gold-deep: #8a7009;
   --rs-rose: #B7536B;
   --rs-blue: #2F8FCB;
   --rs-whatsapp: #25D366;
@@ -51,8 +51,8 @@
 html, body {
   background-color: var(--rs-bg);
   background-image:
-    radial-gradient(ellipse at top right, rgba(229,187,46,0.08) 0%, transparent 55%),
-    radial-gradient(ellipse at bottom left, rgba(201,162,39,0.05) 0%, transparent 55%);
+    radial-gradient(ellipse at top right, rgba(212,175,55,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(184,150,12,0.05) 0%, transparent 55%);
   background-attachment: fixed;
   color: var(--rs-text);
   font-family: 'Montserrat', sans-serif;
@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, .font-serif {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
   color: var(--rs-text);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 .font-mono { font-family: 'JetBrains Mono', monospace; }
 
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, .font-serif {
 .sparkle {
   position: absolute; width: 2px; height: 2px;
   background: var(--rs-gold); border-radius: 50%; opacity: 0;
-  box-shadow: 0 0 6px rgba(229,187,46,0.6);
+  box-shadow: 0 0 6px rgba(212,175,55,0.6);
   animation: sparkle-float 8s linear infinite;
 }
 @keyframes sparkle-float {
@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, .font-serif {
 }
 
 .refraction {
-  background: linear-gradient(90deg, #9B7A14 0%, #E5BB2E 30%, #9B7A14 60%, #E5BB2E 80%, #9B7A14 100%);
+  background: linear-gradient(90deg, #8a7009 0%, #d4af37 30%, #8a7009 60%, #d4af37 80%, #8a7009 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: light-sweep 6s linear infinite;
@@ -122,25 +122,25 @@ h1, h2, h3, h4, h5, .font-serif {
 
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: #FAF6E8; }
-::-webkit-scrollbar-thumb { background: #C9A227; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #9B7A14; }
+::-webkit-scrollbar-thumb { background: #b8960c; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #8a7009; }
 
 .btn-gold {
-  background: linear-gradient(135deg, #E5BB2E 0%, #C9A227 100%);
-  color: #1A1505; font-weight: 700; padding: 0.7rem 1.5rem; border-radius: 2px;
+  background: linear-gradient(135deg, #d4af37 0%, #b8960c 100%);
+  color: #fff; font-weight: 700; padding: 14px 32px; border-radius: 4px;
   transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem;
-  font-size: 0.875rem; letter-spacing: 0.05em; border: 1px solid #C9A227;
-  box-shadow: 0 2px 8px rgba(201,162,39,0.25);
+  font-size: 0.875rem; letter-spacing: 0.06em; border: 1px solid #b8960c;
+  box-shadow: 0 2px 8px rgba(184,150,12,0.25);
 }
-.btn-gold:hover { background: #E5BB2E; box-shadow: 0 4px 20px rgba(229,187,46,0.4); transform: translateY(-1px); }
+.btn-gold:hover { background: #d4af37; box-shadow: 0 4px 20px rgba(184,150,12,0.4); transform: translateY(-1px); }
 
 .btn-outline-gold {
-  background: #FFFFFF; color: #9B7A14; border: 1px solid #C9A227;
-  font-weight: 600; padding: 0.7rem 1.5rem; border-radius: 2px;
+  background: transparent; color: #b8960c; border: 1px solid #b8960c;
+  font-weight: 600; padding: 14px 32px; border-radius: 4px;
   transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem;
-  font-size: 0.875rem; letter-spacing: 0.05em;
+  font-size: 0.875rem; letter-spacing: 0.06em;
 }
-.btn-outline-gold:hover { background: #FFF8E1; }
+.btn-outline-gold:hover { background: rgba(184,150,12,0.08); }
 
 .btn-whatsapp {
   background: var(--rs-whatsapp); color: white; font-weight: 600;
@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, .font-serif {
 
 .overline {
   font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
-  font-weight: 700; color: var(--rs-gold-deep);
+  font-weight: 700; color: var(--rs-gold);
 }
 
 .nav-tile {
@@ -163,13 +163,13 @@ h1, h2, h3, h4, h5, .font-serif {
   transition: transform 0.5s ease;
 }
 .nav-tile:hover::after { transform: scaleX(1); }
-.nav-tile:hover { transform: translateY(-2px); }
+.nav-tile:hover { transform: translateY(-1px); }
 
 .stock-table th {
   position: sticky; top: 0; background: #FAF6E8; z-index: 10;
   font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--rs-gold-deep); font-weight: 700; padding: 0.85rem 0.9rem;
-  text-align: left; border-bottom: 1px solid #C9A227; white-space: nowrap;
+  text-align: left; border-bottom: 1px solid #b8960c; white-space: nowrap;
 }
 .stock-table td {
   padding: 0.85rem 0.9rem; border-bottom: 1px solid #F0E6C9;
@@ -179,3 +179,28 @@ h1, h2, h3, h4, h5, .font-serif {
 
 input, select, textarea { color: var(--rs-text); }
 input::placeholder, textarea::placeholder { color: #9B8B5C; }
+
+/* Trust badge cards */
+.trust-badge {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  background: rgba(184, 150, 12, 0.06); border: 1px solid rgba(184, 150, 12, 0.2);
+  border-radius: 8px; padding: 20px 24px; transition: box-shadow 0.3s ease;
+}
+.trust-badge:hover { box-shadow: 0 0 16px rgba(184, 150, 12, 0.15); }
+.trust-badge img { width: 48px; height: 48px; object-fit: contain; }
+.trust-badge .badge-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+.trust-badge .badge-label { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #cccccc; font-weight: 600; }
+.trust-badge .badge-sub { font-size: 11px; color: #888888; letter-spacing: 0.05em; }
+
+/* Stone card premium hover */
+.stone-card { transition: all 0.3s ease; }
+.stone-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+/* Footer dark theme */
+.footer-dark { background: #0a0a0a; border-top: 1px solid #b8960c; }
+.footer-dark .footer-link { color: #e0e0e0; transition: color 0.2s ease; }
+.footer-dark .footer-link:hover { color: #b8960c; }
+.footer-dark .footer-contact { color: #cccccc; }
+.footer-dark .footer-overline { color: #b8960c; }
+.footer-dark .btn-outline-gold { background: transparent; color: #b8960c; border-color: #b8960c; }
+.footer-dark .btn-outline-gold:hover { background: rgba(184,150,12,0.1); }

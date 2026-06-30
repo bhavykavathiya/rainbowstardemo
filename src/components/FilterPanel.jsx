@@ -14,15 +14,15 @@ const Section = ({ title, children }) => (
   </div>
 );
 
-const Chip = ({ active, onClick, children, color = '#C9A227', testid }) => (
+const Chip = ({ active, onClick, children, color = '#b8960c', testid }) => (
   <button onClick={onClick} data-testid={testid}
-    style={active ? { background: color, color: '#14110A', borderColor: color } : {}}
-    className={`px-2.5 py-1 text-xs border border-[#D9CB94] rounded-sm transition hover:border-[#C9A227]/60 ${active ? 'font-semibold' : 'text-[#1A1505]'}`}>
+    style={active ? { background: color, color: '#fff', borderColor: color } : {}}
+    className={`px-2.5 py-1 text-xs border border-[#D9CB94] rounded-sm transition hover:border-[#b8960c]/60 ${active ? 'font-semibold' : 'text-[#1A1505]'}`}>
     {children}
   </button>
 );
 
-const FilterPanel = ({ filters, setFilters, accentColor = '#C9A227', extra = {}, certLabs = ['IGI','GIA','GCAL'] }) => {
+const FilterPanel = ({ filters, setFilters, accentColor = '#b8960c', extra = {}, certLabs = ['IGI','GIA','GCAL'] }) => {
   const update = (key, val) => setFilters(f => ({ ...f, [key]: val }));
   const toggle = (key, val) => setFilters(f => ({ ...f, [key]: f[key] === val ? '' : val }));
 

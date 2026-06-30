@@ -5,8 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { useBasket } from '../context/BasketContext';
 
 const NAT_SUBNAV = [
-  { to: '/natural?type=white', label: 'White / Colorless' },
-  { to: '/natural?type=fancy', label: 'Fancy Color' },
+  { to: '/natural', label: 'Fancy Color' },
   { to: '/argyle-pink', label: 'Argyle Pink', pink: true },
   { to: '/argyle-blue', label: 'Argyle Blue', blue: true },
 ];
@@ -20,7 +19,7 @@ const Navbar = () => {
   const loc = useLocation();
 
   const linkClass = (active) =>
-    `nav-tile px-3 py-2 text-sm tracking-wider uppercase ${active ? 'text-[#C9A227]' : 'text-[#1A1505] hover:text-[#1A1505]'}`;
+    `nav-tile px-3 py-2 text-sm tracking-wider uppercase ${active ? 'text-[#b8960c]' : 'text-[#1A1505] hover:text-[#b8960c]'}`;
 
   const handleLogout = async () => { await logout(); navigate('/'); };
 
@@ -28,9 +27,10 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 border-b border-[#E8DFC2] bg-white/85 backdrop-blur-xl" data-testid="navbar">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3" data-testid="nav-logo">
-          <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-11 h-11 object-contain" />
+          <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star diamond house logo" className="w-11 h-11 object-contain" style={{ mixBlendMode: 'multiply' }} />
           <div>
             <div className="font-serif text-xl tracking-wide refraction">Rainbow Star</div>
+            <div className="text-[9px] tracking-[0.3em] text-[#3D3520] uppercase -mt-1">B2B Diamond House</div>
             <div className="text-[9px] tracking-[0.3em] text-[#3D3520] uppercase -mt-1">B2B Diamond House</div>
           </div>
         </Link>
@@ -61,16 +61,16 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <Link to="/basket" className="relative p-2 hover:bg-[#FFF8E1] rounded" data-testid="nav-basket">
-            <ShoppingBag size={20} className="text-[#C9A227]" />
+            <ShoppingBag size={20} className="text-[#b8960c]" />
             {items.length > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#C9A227] text-[#14110A] text-[10px] font-bold rounded-full flex items-center justify-center" data-testid="nav-basket-count">{items.length}</span>
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#b8960c] text-white text-[10px] font-bold rounded-full flex items-center justify-center" data-testid="nav-basket-count">{items.length}</span>
             )}
           </Link>
           {user && user.role === 'admin' && (
             <Link to="/admin" className="hidden sm:inline-flex btn-outline-gold !py-2 !px-3 !text-xs" data-testid="nav-admin">Admin</Link>
           )}
           {user ? (
-            <button onClick={handleLogout} className="hidden sm:inline-flex items-center gap-1 text-sm text-[#1A1505] hover:text-[#1A1505]" data-testid="nav-logout"><LogOut size={14}/> Logout</button>
+            <button onClick={handleLogout} className="hidden sm:inline-flex items-center gap-1 text-sm text-[#1A1505] hover:text-[#b8960c]" data-testid="nav-logout"><LogOut size={14}/> Logout</button>
           ) : (
             <Link to="/login" className="hidden sm:inline-flex btn-outline-gold !py-2 !px-4 !text-xs" data-testid="nav-login">Login</Link>
           )}
@@ -81,8 +81,8 @@ const Navbar = () => {
       </div>
       {open && (
         <div className="lg:hidden border-t border-[#E8DFC2] px-6 py-4 space-y-1 bg-white" data-testid="nav-mobile-menu">
-          {[['/','Home'],['/cvd','CVD Diamonds'],['/natural','Natural'],['/argyle-pink','Argyle Pink'],['/argyle-blue','Argyle Blue'],['/about','About'],['/request','Request a Stone'],['/contact','Contact']].map(([to,label]) => (
-            <Link key={to} to={to} onClick={() => setOpen(false)} className="block py-2 text-sm uppercase tracking-wider text-[#1A1505] hover:text-[#C9A227]">{label}</Link>
+          {[['/','Home'],['/cvd','CVD Diamonds'],['/natural','Natural Fancy Color'],['/argyle-pink','Argyle Pink'],['/argyle-blue','Argyle Blue'],['/about','About'],['/request','Request a Stone'],['/contact','Contact']].map(([to,label]) => (
+            <Link key={to} to={to} onClick={() => setOpen(false)} className="block py-2 text-sm uppercase tracking-wider text-[#1A1505] hover:text-[#b8960c]">{label}</Link>
           ))}
         </div>
       )}

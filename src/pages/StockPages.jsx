@@ -4,7 +4,7 @@ import LoginGate from '../components/LoginGate';
 
 export const CvdPage = () => (
   <LoginGate>
-    <StockBrowser category="cvd" accent="#C9A227" title="CVD Diamonds" subtitle="Laboratory-grown, type IIa carbon — visually and chemically identical to mined diamonds. Certified by IGI, GIA & GCAL."
+    <StockBrowser category="cvd" accent="#b8960c" title="CVD Diamonds" subtitle="Laboratory-grown, type IIa carbon — visually and chemically identical to mined diamonds. Certified by IGI, GIA & GCAL."
       headerBg="linear-gradient(135deg, #FFFDF7 0%, #FFF8E1 50%, #FAF6E8 100%)"
       extra={{ origin: false }} certLabs={['IGI','GIA','GCAL']} />
   </LoginGate>
@@ -12,7 +12,7 @@ export const CvdPage = () => (
 
 export const NaturalPage = () => (
   <LoginGate>
-    <StockBrowser categories={['natural','argyle_pink','argyle_blue']} accent="#C9A227" title="Natural Diamonds" subtitle="Our complete natural inventory — white &amp; colorless, fancy color, and the world's rarest Argyle Pink &amp; Argyle Blue. Earth-mined, GIA/HRD/IGI certified, ethically sourced."
+    <StockBrowser categories={['natural','argyle_pink','argyle_blue']} accent="#b8960c" title="Natural Diamonds" subtitle="Our complete natural inventory — fancy color diamonds and the world's rarest Argyle Pink &amp; Argyle Blue. Earth-mined, GIA/HRD/IGI certified, ethically sourced."
       headerBg="linear-gradient(135deg, #FFFDF7 0%, #FFF8E1 50%, #FAF6E8 100%)"
       extra={{ origin: true, fancyColor: true }} certLabs={['GIA','GIA Fancy Color','HRD','IGI']} />
   </LoginGate>

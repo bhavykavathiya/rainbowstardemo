@@ -9,7 +9,7 @@ export const DiamondDust = ({ count = 60 }) => {
       delay: Math.random() * 8,
       duration: 8 + Math.random() * 8,
       size: 1 + Math.random() * 2,
-      color: Math.random() > 0.7 ? '#C9A227' : '#fff',
+      color: Math.random() > 0.7 ? '#b8960c' : '#fff',
     }));
     setParticles(arr);
   }, [count]);

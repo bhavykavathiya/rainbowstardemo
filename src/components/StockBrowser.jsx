@@ -65,8 +65,8 @@ const StockBrowser = ({ category, categories, accent, title, subtitle, headerBg,
               <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Stock ID or certificate #…" className="w-full bg-white border border-[#D9CB94] pl-9 pr-3 py-2 text-sm rounded-sm" data-testid="stock-search"/>
             </div>
             <div className="flex gap-1 bg-white border border-[#D9CB94] p-0.5 rounded-sm">
-              <button onClick={() => setView('grid')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'grid' ? 'bg-[#C9A227] text-[#14110A]' : 'text-[#1A1505]'}`} data-testid="view-grid"><Grid3X3 size={13}/> Grid</button>
-              <button onClick={() => setView('table')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'table' ? 'bg-[#C9A227] text-[#14110A]' : 'text-[#1A1505]'}`} data-testid="view-table"><Rows size={13}/> Table</button>
+              <button onClick={() => setView('grid')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'grid' ? 'bg-[#b8960c] text-white' : 'text-[#1A1505]'}`} data-testid="view-grid"><Grid3X3 size={13}/> Grid</button>
+              <button onClick={() => setView('table')} className={`px-3 py-1.5 text-xs flex items-center gap-1 ${view === 'table' ? 'bg-[#b8960c] text-white' : 'text-[#1A1505]'}`} data-testid="view-table"><Rows size={13}/> Table</button>
             </div>
           </div>
 

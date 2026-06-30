@@ -56,17 +56,17 @@ const EnquiryBasket = () => {
   return (
     <>
       {!open && (
-        <button onClick={() => setOpen(true)} className="fixed bottom-6 right-6 z-50 bg-[#C9A227] text-[#14110A] px-5 py-3 rounded-sm shadow-2xl hover:bg-[#E5BB2E] transition flex items-center gap-2 font-semibold" data-testid="enquiry-basket-fab">
+        <button onClick={() => setOpen(true)} className="fixed bottom-6 right-6 z-50 bg-[#b8960c] text-white px-5 py-3 rounded-sm shadow-2xl hover:bg-[#d4af37] transition flex items-center gap-2 font-semibold" data-testid="enquiry-basket-fab">
           <ShoppingBag size={18}/>
           <span>{items.length} {items.length === 1 ? 'stone' : 'stones'}</span>
           <span className="font-mono text-xs opacity-70">·  ${totalValue.toLocaleString()}</span>
         </button>
       )}
       {open && (
-        <div className="fixed bottom-6 right-6 z-50 w-[380px] max-h-[80vh] glass border border-[#C9A227]/30 rounded-sm shadow-2xl flex flex-col" data-testid="enquiry-basket-panel">
+        <div className="fixed bottom-6 right-6 z-50 w-[380px] max-h-[80vh] glass border border-[#b8960c]/30 rounded-sm shadow-2xl flex flex-col" data-testid="enquiry-basket-panel">
           <div className="flex items-center justify-between p-4 border-b border-[#E8DFC2]">
             <div>
-              <div className="font-serif text-xl text-[#C9A227]">Enquiry Basket</div>
+              <div className="font-serif text-xl text-[#b8960c]">Enquiry Basket</div>
               <div className="text-[10px] text-[#3D3520] uppercase tracking-widest">{items.length} stones · ${totalValue.toLocaleString()}</div>
             </div>
             <button onClick={() => setOpen(false)} className="text-[#1A1505] hover:text-[#1A1505]" data-testid="enquiry-close"><X size={18}/></button>
@@ -75,7 +75,7 @@ const EnquiryBasket = () => {
             {items.map(s => (
               <div key={s.id} className="flex items-center gap-3 p-2 bg-[#FFF8E1] text-xs" data-testid={`basket-item-${s.stock_id}`}>
                 <div className="flex-1 min-w-0">
-                  <div className="font-mono text-[#C9A227]">{s.stock_id}</div>
+                  <div className="font-mono text-[#b8960c]">{s.stock_id}</div>
                   <div className="text-[#1A1505] truncate">{s.carat}ct {s.shape} · {s.color}</div>
                 </div>
                 <div className="font-mono text-[#1A1505]">${s.total_price?.toLocaleString()}</div>

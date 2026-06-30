@@ -22,7 +22,7 @@ export const Login = () => {
     <div className="min-h-[80vh] flex items-center justify-center px-6 py-12" data-testid="login-page">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Diamond size={32} className="text-[#C9A227] mx-auto mb-3" strokeWidth={0.8}/>
+          <Diamond size={32} className="text-[#b8960c] mx-auto mb-3" strokeWidth={0.8}/>
           <h1 className="font-serif text-4xl mb-1">Sign In</h1>
           <p className="text-[#1A1505] text-sm">Sign in to your trade account, or continue as a guest</p>
         </div>
@@ -34,7 +34,7 @@ export const Login = () => {
           {err && <div className="text-xs text-red-400" data-testid="login-error">{err}</div>}
           <button disabled={busy} className="w-full btn-gold justify-center" data-testid="login-submit">{busy ? 'Signing in…' : 'Sign In'}</button>
         </form>
-        <div className="text-center mt-5 text-sm text-[#1A1505]">No account? <Link to="/register" className="text-[#C9A227] hover:underline" data-testid="goto-register">Create a trade account</Link></div>
+        <div className="text-center mt-5 text-sm text-[#1A1505]">No account? <Link to="/register" className="text-[#b8960c] hover:underline" data-testid="goto-register">Create a trade account</Link></div>
       </div>
     </div>
   );
@@ -54,7 +54,7 @@ export const Register = () => {
     <div className="min-h-[80vh] flex items-center justify-center px-6 py-12" data-testid="register-page">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Diamond size={32} className="text-[#C9A227] mx-auto mb-3" strokeWidth={0.8}/>
+          <Diamond size={32} className="text-[#b8960c] mx-auto mb-3" strokeWidth={0.8}/>
           <h1 className="font-serif text-4xl mb-1">Create Account</h1>
           <p className="text-[#1A1505] text-sm">Trade accounts — for jewelers, dealers, and collectors</p>
         </div>
@@ -67,7 +67,7 @@ export const Register = () => {
           {err && <div className="text-xs text-red-400">{err}</div>}
           <button disabled={busy} className="w-full btn-gold justify-center" data-testid="reg-submit">{busy ? 'Creating…' : 'Create account'}</button>
         </form>
-        <div className="text-center mt-5 text-sm text-[#1A1505]">Have an account? <Link to="/login" className="text-[#C9A227] hover:underline">Sign in</Link></div>
+        <div className="text-center mt-5 text-sm text-[#1A1505]">Have an account? <Link to="/login" className="text-[#b8960c] hover:underline">Sign in</Link></div>
       </div>
     </div>
   );

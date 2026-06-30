@@ -57,10 +57,10 @@ const AdminPanel = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-10" data-testid="admin-panel">
       <div className="flex items-center justify-between mb-8">
-        <div><div className="overline text-[#C9A227]">Admin Panel</div><h1 className="font-serif text-4xl">Inventory Control</h1></div>
+        <div><div className="overline text-[#b8960c]">Admin Panel</div><h1 className="font-serif text-4xl">Inventory Control</h1></div>
         <div className="flex gap-2">
-          <button onClick={() => setTab('stock')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'stock' ? 'bg-[#C9A227] text-[#14110A] border-[#C9A227]' : 'border-[#C9A227]/40 text-[#1A1505]'}`} data-testid="tab-stock">Stock</button>
-          <button onClick={() => setTab('enquiries')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'enquiries' ? 'bg-[#C9A227] text-[#14110A] border-[#C9A227]' : 'border-[#C9A227]/40 text-[#1A1505]'}`} data-testid="tab-enquiries"><Mail size={12} className="inline mr-1"/>Enquiries ({enquiries.length})</button>
+          <button onClick={() => setTab('stock')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'stock' ? 'bg-[#b8960c] text-white border-[#b8960c]' : 'border-[#b8960c]/40 text-[#1A1505]'}`} data-testid="tab-stock">Stock</button>
+          <button onClick={() => setTab('enquiries')} className={`px-4 py-2 text-xs uppercase tracking-wider border ${tab === 'enquiries' ? 'bg-[#b8960c] text-white border-[#b8960c]' : 'border-[#b8960c]/40 text-[#1A1505]'}`} data-testid="tab-enquiries"><Mail size={12} className="inline mr-1"/>Enquiries ({enquiries.length})</button>
         </div>
       </div>
 
@@ -100,7 +100,7 @@ const AdminPanel = () => {
               <thead><tr><th>ID</th><th>Cat</th><th>Shape</th><th>Carat</th><th>Color</th><th>Clarity</th><th>Cert</th><th>$</th><th>Action</th></tr></thead>
               <tbody>{stones.slice(0, 100).map(s => (
                 <tr key={s.id}>
-                  <td className="font-mono text-[#C9A227]">{s.stock_id}</td>
+                  <td className="font-mono text-[#b8960c]">{s.stock_id}</td>
                   <td>{s.category}</td><td>{s.shape}</td><td>{s.carat}</td>
                   <td className="max-w-[160px] truncate" title={s.color}>{s.color}</td><td>{s.clarity}</td>
                   <td>{s.certificate_lab}</td><td className="font-mono">${s.total_price?.toLocaleString()}</td>
@@ -128,7 +128,7 @@ const AdminPanel = () => {
                   {e.message && <div className="text-sm text-[#1A1505] mt-3 whitespace-pre-wrap">{e.message}</div>}
                 </div>
                 <div className="text-right text-xs">
-                  <div className="text-[#C9A227]">{e.stone_ids?.length || 0} stones</div>
+                  <div className="text-[#b8960c]">{e.stone_ids?.length || 0} stones</div>
                   <div className="text-[#3D3520]">via {e.source}</div>
                 </div>
               </div>

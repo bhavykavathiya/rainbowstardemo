@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Diamond, Shield, Globe, Award, ArrowRight, Sparkles, Gem } from 'lucide-react';
+import { Diamond, Shield, ShieldCheck, Globe, ArrowRight, Gem } from 'lucide-react';
 import { DiamondDust } from '../components/DiamondDust';
 import { CONTACT, buildWhatsappLink, fetchDiamonds, fetchDiamondStats, subscribeNewsletter } from '../lib/api';
 import { toast } from 'sonner';
 
 const TILES = [
-  { to: '/cvd', label: 'CVD Diamonds', accent: '#C9A227', desc: 'Lab-grown, certified, type IIa' },
-  { to: '/natural', label: 'Natural Diamonds', accent: '#C9A227', desc: 'Earth-mined, GIA graded' },
+  { to: '/cvd', label: 'CVD Diamonds', accent: '#b8960c', desc: 'Lab-grown, certified, type IIa' },
+  { to: '/natural', label: 'Natural Diamonds', accent: '#b8960c', desc: 'Fancy color, GIA graded' },
   { to: '/argyle-pink', label: 'Argyle Pink', accent: '#B7536B', desc: 'The world\'s rarest pinks', pink: true },
   { to: '/argyle-blue', label: 'Argyle Blue', accent: '#2F8FCB', desc: 'Whispers of violet & ocean', blue: true },
-  { to: '/request', label: 'Request a Stone', accent: '#C9A227', desc: 'Bespoke sourcing service' },
-  { to: '/contact', label: 'Contact', accent: '#C9A227', desc: 'WhatsApp, email, trade desk' },
+  { to: '/request', label: 'Request a Stone', accent: '#b8960c', desc: 'Bespoke sourcing service' },
+  { to: '/contact', label: 'Contact', accent: '#b8960c', desc: 'WhatsApp, email, trade desk' },
 ];
 
 const BADGES = [
-  { icon: Award, label: 'GIA Certified' },
-  { icon: Award, label: 'IGI Certified' },
-  
-  { icon: Shield, label: 'Conflict Free' },
-  { icon: Globe, label: 'Worldwide Shipping' },
+  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/GIA_logo.svg/200px-GIA_logo.svg.png', alt: 'GIA Certified', label: 'GIA Certified', sub: 'Certified Since 1931', filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.9)' },
+  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/IGI_logo.svg/200px-IGI_logo.svg.png', alt: 'IGI Certified', label: 'IGI Certified', sub: 'Founded 1975', filter: 'brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.9)' },
+  { type: 'icon', Icon: ShieldCheck, alt: 'Conflict Free', label: 'Conflict Free', sub: 'Kimberley Certified', color: '#b8960c' },
+  { type: 'icon', Icon: Globe, alt: 'Worldwide Shipping', label: 'Worldwide Shipping', sub: '32+ Countries', color: '#b8960c' },
 ];
 
 const Home = () => {
@@ -65,7 +64,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#FFFDF7] via-[#FFF8E1] to-[#FAF6E8]" />
         <div className="absolute inset-0 grain opacity-40" />
         <DiamondDust count={70} />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C9A227]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#b8960c]/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#B7536B]/8 rounded-full blur-[120px]" />
 
         <div className="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-12 items-center">
@@ -81,8 +80,8 @@ const Home = () => {
               <Link to="/natural" className="btn-gold" data-testid="hero-explore-natural">Explore Inventory <ArrowRight size={16}/></Link>
               <a href={buildWhatsappLink('Hello Rainbow Star, I would like to view your diamond inventory.')} target="_blank" rel="noreferrer" className="btn-outline-gold" data-testid="hero-whatsapp">WhatsApp Trade Desk</a>
             </motion.div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="mt-12 inline-flex items-baseline gap-3 border-l-2 pl-5" style={{ borderColor: '#C9A227' }} data-testid="hero-stock-counter">
-              <span className="font-mono text-5xl font-light text-[#C9A227]">{Math.max(displayCount,5000)}+</span>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="mt-12 inline-flex items-baseline gap-3 border-l-2 pl-5" style={{ borderColor: '#b8960c' }} data-testid="hero-stock-counter">
+              <span className="font-mono text-5xl font-light text-[#b8960c]">{Math.max(displayCount,5000)}+</span>
               <span className="text-xs uppercase tracking-[0.3em] text-[#1A1505]">Diamonds in stock — updated live</span>
             </motion.div>
           </div>
@@ -95,39 +94,44 @@ const Home = () => {
               </defs>
             </svg>
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[560px] h-[560px] rounded-full bg-[#E5BB2E]/15 blur-3xl"/>
+              <div className="w-[560px] h-[560px] rounded-full bg-[#b8960c]/15 blur-3xl"/>
             </div>
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 45, repeat: Infinity, ease: 'linear' }} className="relative w-[620px] h-[620px] flex items-center justify-center">
-              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star" className="w-full h-full object-contain drop-shadow-[0_0_60px_rgba(229,187,46,0.5)]" style={{ mixBlendMode: 'multiply' }} />
+              <img src="https://customer-assets.emergentagent.com/job_argyle-blue-elite/artifacts/6i4nnfax_IMG_3671.jpeg" alt="Rainbow Star diamond logo" className="w-full h-full object-contain drop-shadow-[0_0_60px_rgba(184,150,12,0.5)]" style={{ mixBlendMode: 'multiply' }} />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* TRUST BADGES */}
-      <section className="border-y border-[#E8DFC2] bg-white py-6" data-testid="trust-badges">
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-around gap-6">
+      <section className="bg-[#0d0d0d] py-16" data-testid="trust-badges">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
           {BADGES.map(b => (
-            <div key={b.label} className="flex items-center gap-2 text-[#1A1505]">
-              <b.icon size={16} className="text-[#C9A227]"/>
-              <span className="text-xs uppercase tracking-widest">{b.label}</span>
+            <div key={b.label} className="trust-badge" data-testid={`badge-${b.label.replace(/\s+/g,'-').toLowerCase()}`}>
+              {b.type === 'logo' ? (
+                <img src={b.src} alt={b.alt} style={{ filter: b.filter }} />
+              ) : (
+                <div className="badge-icon"><b.Icon size={40} strokeWidth={1.5} style={{ color: b.color }} /></div>
+              )}
+              <div className="badge-label">{b.label}</div>
+              <div className="badge-sub">{b.sub}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* NAVIGATION TILES */}
-      <section className="max-w-7xl mx-auto px-6 py-24" data-testid="quick-tiles">
-        <div className="overline mb-2 text-[#C9A227]">Inventory Sections</div>
+      <section className="max-w-7xl mx-auto px-6 py-24 lg:py-32" data-testid="quick-tiles">
+        <div className="overline mb-2">Inventory Sections</div>
         <h2 className="font-serif text-4xl md:text-5xl mb-12">Quick Navigation</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {TILES.map((t, i) => (
             <motion.div key={t.to} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}>
-              <Link to={t.to} className={`block relative p-8 bg-white border border-[#E8DFC2] hover:border-[#C9A227]/50 transition-all nav-tile group ${t.pink ? 'argyle-glow-pink' : t.blue ? 'argyle-glow-blue' : ''}`} data-testid={`tile-${t.to.replace('/','')}`}>
+              <Link to={t.to} className={`block relative p-8 bg-white border border-[#E8DFC2] hover:border-[#b8960c]/50 transition-all nav-tile group ${t.pink ? 'argyle-glow-pink' : t.blue ? 'argyle-glow-blue' : ''}`} data-testid={`tile-${t.to.replace('/','')}`}>
                 <Gem size={28} style={{ color: t.accent }} className="mb-4"/>
                 <div className="font-serif text-2xl mb-1" style={{ color: t.accent }}>{t.label}</div>
                 <div className="text-sm text-[#1A1505] mb-6">{t.desc}</div>
-                <div className="text-xs uppercase tracking-widest text-[#3D3520] flex items-center gap-1 group-hover:text-[#C9A227] transition">View <ArrowRight size={12}/></div>
+                <div className="text-xs uppercase tracking-widest text-[#3D3520] flex items-center gap-1 group-hover:text-[#b8960c] transition">View <ArrowRight size={12}/></div>
               </Link>
             </motion.div>
           ))}
@@ -136,16 +140,16 @@ const Home = () => {
 
       {/* FEATURED CAROUSEL */}
       {featured.length > 0 && (
-        <section className="border-t border-[#E8DFC2] bg-white py-24" data-testid="featured-stones">
+        <section className="border-t border-[#E8DFC2] bg-white py-24 lg:py-32" data-testid="featured-stones">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="overline mb-2 text-[#C9A227]">Hero Stones</div>
+            <div className="overline mb-2">Hero Stones</div>
             <h2 className="font-serif text-4xl md:text-5xl mb-12">Featured This Week</h2>
             <div className="overflow-x-auto -mx-6 px-6 pb-4">
               <div className="flex gap-5">
                 {featured.map(s => {
-                  const accent = s.category === 'argyle_pink' ? '#B7536B' : s.category === 'argyle_blue' ? '#2F8FCB' : '#C9A227';
+                  const accent = s.category === 'argyle_pink' ? '#B7536B' : s.category === 'argyle_blue' ? '#2F8FCB' : '#b8960c';
                   return (
-                    <Link key={s.id} to={s.category === 'argyle_pink' ? '/argyle-pink' : s.category === 'argyle_blue' ? '/argyle-blue' : s.category === 'cvd' ? '/cvd' : '/natural'} className="shrink-0 w-72 bg-white border border-[#E8DFC2] hover:border-[#C9A227]/40 transition" data-testid={`featured-${s.stock_id}`}>
+                    <Link key={s.id} to={s.category === 'argyle_pink' ? '/argyle-pink' : s.category === 'argyle_blue' ? '/argyle-blue' : s.category === 'cvd' ? '/cvd' : '/natural'} className="shrink-0 w-72 bg-white border border-[#E8DFC2] hover:border-[#b8960c]/40 transition" data-testid={`featured-${s.stock_id}`}>
                       <div className="aspect-square bg-gradient-to-br from-[#FFF8E1] to-white flex items-center justify-center">
                         <Diamond size={72} strokeWidth={0.6} style={{ color: accent }} />
                       </div>
@@ -165,8 +169,8 @@ const Home = () => {
       )}
 
       {/* NEWSLETTER */}
-      <section className="max-w-3xl mx-auto px-6 py-24 text-center" data-testid="newsletter">
-        <div className="overline mb-3 text-[#C9A227]">Trade Desk</div>
+      <section className="max-w-3xl mx-auto px-6 py-24 lg:py-32 text-center" data-testid="newsletter">
+        <div className="overline mb-3">Trade Desk</div>
         <h2 className="font-serif text-4xl md:text-5xl mb-3">New stones arrive weekly</h2>
         <p className="text-[#1A1505] mb-8">Subscribe to receive private trade updates, new Argyle parcels, and exclusive stock previews. For dealers and jewelers only.</p>
         <form onSubmit={submitNewsletter} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
