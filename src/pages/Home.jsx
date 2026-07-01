@@ -15,9 +15,22 @@ const TILES = [
   { to: '/contact', label: 'Contact', accent: '#b8960c', desc: 'WhatsApp, email, trade desk' },
 ];
 
+const GiaSvg = () => (
+  <svg width="80" height="32" viewBox="0 0 80 32" xmlns="http://www.w3.org/2000/svg">
+    <rect width="80" height="32" rx="4" fill="#b8960c"/>
+    <text x="40" y="22" fontFamily="Georgia, serif" fontSize="16" fontWeight="bold" fill="white" textAnchor="middle" letterSpacing="2">GIA</text>
+  </svg>
+);
+const IgiSvg = () => (
+  <svg width="80" height="32" viewBox="0 0 80 32" xmlns="http://www.w3.org/2000/svg">
+    <rect width="80" height="32" rx="4" fill="#b8960c"/>
+    <text x="40" y="22" fontFamily="Georgia, serif" fontSize="16" fontWeight="bold" fill="white" textAnchor="middle" letterSpacing="2">IGI</text>
+  </svg>
+);
+
 const BADGES = [
-  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/GIA_logo.svg/200px-GIA_logo.svg.png', alt: 'GIA Certified', label: 'GIA Certified', filter: 'brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(5deg) brightness(0.85)' },
-  { type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/IGI_logo.svg/200px-IGI_logo.svg.png', alt: 'IGI Certified', label: 'IGI Certified', filter: 'brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(5deg) brightness(0.85)' },
+  { type: 'svg', Svg: GiaSvg, alt: 'GIA Certified', label: 'GIA Certified' },
+  { type: 'svg', Svg: IgiSvg, alt: 'IGI Certified', label: 'IGI Certified' },
   { type: 'icon', Icon: ShieldCheck, alt: 'Conflict Free', label: 'Conflict Free', sub: 'Kimberley Certified', color: '#b8960c' },
   { type: 'icon', Icon: Globe, alt: 'Worldwide Shipping', label: 'Worldwide Shipping', sub: '32+ Countries', color: '#b8960c' },
 ];
@@ -108,8 +121,8 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-4">
           {BADGES.map(b => (
             <div key={b.label} className="trust-badge" data-testid={`badge-${b.label.replace(/\s+/g,'-').toLowerCase()}`}>
-              {b.type === 'logo' ? (
-                <img src={b.src} alt={b.alt} style={{ filter: b.filter }} />
+              {b.type === 'svg' ? (
+                <div className="badge-icon" aria-label={b.alt}><b.Svg /></div>
               ) : (
                 <div className="badge-icon"><b.Icon size={40} strokeWidth={1.5} style={{ color: b.color }} /></div>
               )}
